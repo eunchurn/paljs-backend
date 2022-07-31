@@ -1,0 +1,45 @@
+{
+  "name": "paljs-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --exit-child --transpile-only src/index.ts",
+    "generate": "yarn generate:pal && yarn generate:prisma && yarn generate:schema",
+    "generate:prisma": "prisma generate",
+    "generate:schema": "dotenv -e .env -- ts-node --transpile-only src/schema/index.ts",
+    "pregenerate:pal": "rimraf src/schema/types/generated",
+    "generate:pal": "pal g",
+    "postgenerate:pal": "prettier --write src/schema/types/generated --loglevel silent"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eunchurn/eslint-config": "^0.1.11",
+    "@eunchurn/prettier-config": "^0.0.4",
+    "@paljs/cli": "^4.1.0",
+    "@types/jest": "^28.1.6",
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^18.6.3",
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^6.0.0",
+    "jest": "^28.1.3",
+    "prisma": "3.15.2",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@paljs/nexus": "^4.1.0",
+    "@prisma/client": "3.15.2",
+    "apollo-server-express": "^3.10.0",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "module-alias": "^2.2.2",
+    "nexus": "^1.3.0",
+    "nexus-shield": "^2.2.0"
+  },
+  "prettier": "@eunchurn/prettier-config"
+}

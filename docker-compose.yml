@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  postgresqldb:
+    image: postgres:13.7
+    container_name: pajs-backend
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/var/lib/postgresql/data/pgdata
+volumes:
+  dbdata:
