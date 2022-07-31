@@ -6,6 +6,12 @@
 
 ## schema.prisma
 
+`.env`
+
+```env
+DATABASE_URL=postgresql://postgres:password@localhost:5432/apidb?schema=public&connection_limit=5
+```
+
 ```prisma
 datasource db {
   provider = "postgresql"
