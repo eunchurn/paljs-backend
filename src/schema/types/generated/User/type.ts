@@ -9,6 +9,7 @@ export const User = objectType({
   description: `사용자`,
   definition(t) {
     t.string("id");
+    t.string("email");
     t.string("name");
     t.list.field("posts", {
       type: "Post",

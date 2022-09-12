@@ -7,4 +7,7 @@ module.exports = {
     generator: "nexus",
     output: "src/schema/types/generated",
   },
+  frontend: {
+    admin: true,
+  },
 };

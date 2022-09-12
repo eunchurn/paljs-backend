@@ -1,3 +1,3 @@
 export * from "./AdminSchema";
-export * from "./Post";
 export * from "./User";
+export * from "./Posts";

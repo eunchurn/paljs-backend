@@ -2,44 +2,61 @@
   "name": "paljs-backend",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --exit-child --transpile-only src/index.ts",
+    "pregenerate": "npm -s run get:current:schema:admin",
     "generate": "yarn generate:pal && yarn generate:prisma && yarn generate:schema",
+    "postgenerate": "GENERATE_ADMIN=true npm -s run generate:schema:admin",
+    "pregenerate:pal": "ts-node --esm src/libs/removesGeneratedIndexes.ts",
+    "generate:pal": "pal g",
+    "postgenerate:pal": "prettier --write src/schema/types/generated --loglevel silent",
     "generate:prisma": "prisma generate",
     "generate:schema": "dotenv -e .env -- ts-node --transpile-only src/schema/index.ts",
-    "pregenerate:pal": "rimraf src/schema/types/generated",
-    "generate:pal": "pal g",
-    "postgenerate:pal": "prettier --write src/schema/types/generated --loglevel silent"
+    "generate:schema:admin": "GENERATE_ADMIN=true dotenv -e .env -- ts-node --transpile-only src/schema/index.ts && yarn seed --name=AdminSchema",
+    "get:current:schema:admin": "dotenv -e .env -- ts-node --transpile-only src/libs/getCurrentAdminSettings.ts",
+    "seed": "ts-node prisma/seed/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "prettier": "@eunchurn/prettier-config",
+  "dependencies": {
+    "@paljs/nexus": "^4.1.0",
+    "@prisma/client": "3.15.2",
+    "apollo-server-express": "^3.10.0",
+    "chance": "^1.1.8",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "lodash": "^4.17.21",
+    "lowdb": "^3.0.0",
+    "module-alias": "^2.2.2",
+    "nexus": "^1.3.0",
+    "nexus-shield": "^2.2.0",
+    "tsimportlib": "^0.0.3"
+  },
   "devDependencies": {
     "@eunchurn/eslint-config": "0.1.11",
     "@eunchurn/prettier-config": "0.0.4",
     "@paljs/cli": "4.1.0",
+    "@types/chance": "^1.1.3",
     "@types/jest": "28.1.6",
+    "@types/lodash": "^4.14.185",
     "@types/module-alias": "2.0.1",
     "@types/node": "18.6.3",
+    "commander": "^9.4.0",
     "cross-env": "7.0.3",
+    "del": "^7.0.0",
     "dotenv-cli": "6.0.0",
     "jest": "28.1.3",
+    "jest-mock-extended": "^2.0.7",
     "prisma": "3.15.2",
     "ts-jest": "28.0.7",
     "ts-node": "10.9.1",
     "ts-node-dev": "2.0.0",
     "typescript": "4.7.4"
   },
-  "dependencies": {
-    "@paljs/nexus": "^4.1.0",
-    "@prisma/client": "3.15.2",
-    "apollo-server-express": "^3.10.0",
-    "express": "^4.18.1",
-    "graphql": "^16.5.0",
-    "module-alias": "^2.2.2",
-    "nexus": "^1.3.0",
-    "nexus-shield": "^2.2.0"
-  },
-  "prettier": "@eunchurn/prettier-config"
+  "prisma": {
+    "seed": "ts-node prisma/seed/index.ts"
+  }
 }

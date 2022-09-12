@@ -20,7 +20,7 @@ const option: SchemaConfig = {
       defaultRule: allow,
     }),
     paljs({
-      includeAdmin: true,
+      includeAdmin: process.env.GENERATE_ADMIN === "true",
     }),
     declarativeWrappingPlugin(),
     fieldAuthorizePlugin({
