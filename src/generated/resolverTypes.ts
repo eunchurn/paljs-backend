@@ -642,6 +642,7 @@ export interface NexusGenInputs {
     type?: string | null; // String
     unique?: boolean | null; // Boolean
     update?: boolean | null; // Boolean
+    upload?: boolean | null; // Boolean
   }
   UpdateModelInput: { // input type
     create?: boolean | null; // Boolean
@@ -1057,11 +1058,11 @@ export interface NexusGenFieldTypes {
     deleteOneAdminSchema: NexusGenRootTypes['AdminSchema'] | null; // AdminSchema
     deleteOnePost: NexusGenRootTypes['Post'] | null; // Post
     deleteOneUser: NexusGenRootTypes['User'] | null; // User
-    updateField: NexusGenRootTypes['Field'] | null; // Field
+    updateField: NexusGenRootTypes['Field']; // Field!
     updateManyAdminSchema: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyPost: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     updateManyUser: NexusGenRootTypes['BatchPayload']; // BatchPayload!
-    updateModel: NexusGenRootTypes['Model'] | null; // Model
+    updateModel: NexusGenRootTypes['Model']; // Model!
     updateOneAdminSchema: NexusGenRootTypes['AdminSchema']; // AdminSchema!
     updateOnePost: NexusGenRootTypes['Post']; // Post!
     updateOneUser: NexusGenRootTypes['User']; // User!
@@ -1112,7 +1113,7 @@ export interface NexusGenFieldTypes {
     findUniqueAdminSchema: NexusGenRootTypes['AdminSchema'] | null; // AdminSchema
     findUniquePost: NexusGenRootTypes['Post'] | null; // Post
     findUniqueUser: NexusGenRootTypes['User'] | null; // User
-    getSchema: NexusGenRootTypes['Schema'] | null; // Schema
+    getSchema: NexusGenRootTypes['Schema']; // Schema!
   }
   Schema: { // field return type
     enums: NexusGenRootTypes['Enum'][]; // [Enum!]!
@@ -1359,7 +1360,7 @@ export interface NexusGenArgTypes {
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
     updateField: { // args
-      data?: NexusGenInputs['UpdateFieldInput'] | null; // UpdateFieldInput
+      data: NexusGenInputs['UpdateFieldInput']; // UpdateFieldInput!
       id: string; // String!
       modelId: string; // String!
     }
@@ -1376,7 +1377,7 @@ export interface NexusGenArgTypes {
       where?: NexusGenInputs['UserWhereInput'] | null; // UserWhereInput
     }
     updateModel: { // args
-      data?: NexusGenInputs['UpdateModelInput'] | null; // UpdateModelInput
+      data: NexusGenInputs['UpdateModelInput']; // UpdateModelInput!
       id: string; // String!
     }
     updateOneAdminSchema: { // args

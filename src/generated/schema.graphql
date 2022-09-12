@@ -344,11 +344,11 @@ type Mutation {
   deleteOneAdminSchema(where: AdminSchemaWhereUniqueInput!): AdminSchema
   deleteOnePost(where: PostWhereUniqueInput!): Post
   deleteOneUser(where: UserWhereUniqueInput!): User
-  updateField(data: UpdateFieldInput, id: String!, modelId: String!): Field
+  updateField(data: UpdateFieldInput!, id: String!, modelId: String!): Field!
   updateManyAdminSchema(data: AdminSchemaUpdateManyMutationInput!, where: AdminSchemaWhereInput): BatchPayload!
   updateManyPost(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
   updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  updateModel(data: UpdateModelInput, id: String!): Model
+  updateModel(data: UpdateModelInput!, id: String!): Model!
   updateOneAdminSchema(data: AdminSchemaUpdateInput!, where: AdminSchemaWhereUniqueInput!): AdminSchema!
   updateOnePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post!
   updateOneUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
@@ -793,7 +793,7 @@ type Query {
   findUniqueAdminSchema(where: AdminSchemaWhereUniqueInput!): AdminSchema
   findUniquePost(where: PostWhereUniqueInput!): Post
   findUniqueUser(where: UserWhereUniqueInput!): User
-  getSchema: Schema
+  getSchema: Schema!
 }
 
 enum QueryMode {
@@ -899,6 +899,7 @@ input UpdateFieldInput {
   type: String
   unique: Boolean
   update: Boolean
+  upload: Boolean
 }
 
 input UpdateModelInput {
