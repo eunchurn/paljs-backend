@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   postgresqldb:
-    image: postgres:13.7
+    image: postgres:13.10
     container_name: pajs-backend
     restart: always
     environment:
