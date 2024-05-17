@@ -4531,9 +4531,9 @@ new-github-issue-url@0.2.1:
   integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
 
 nexus-shield@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/nexus-shield/-/nexus-shield-2.2.0.tgz#4d4cfb26f9e6d4c2c504bec108cfb92a54591728"
-  integrity sha512-AUptsuxe53hvvPqPaSkbuF8XKdT7y3b4aOyZBB9JyMiXOEaRP6TenTW8ypiBFLvJZh0wM7QThIe9RMDoBb2Rzw==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/nexus-shield/-/nexus-shield-2.2.1.tgz#3a0db02cc9e5346a8e349ceb92a70c14b8815745"
+  integrity sha512-+rCYPEYE+k9ldCJ/4TjEdhD5Vm2TRIa8d8cx+oh5/gmvsxpIasj/XVlMYNQlw1tsWdb35WasfSBWo13W8HQZHA==
   dependencies:
     object-hash "^3.0.0"
 
