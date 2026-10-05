@@ -36,7 +36,7 @@
     "tsimportlib": "^0.0.3"
   },
   "devDependencies": {
-    "@eunchurn/eslint-config": "0.1.11",
+    "@eunchurn/eslint-config": "0.1.13",
     "@eunchurn/prettier-config": "0.0.4",
     "@paljs/cli": "5.0.3",
     "@types/chance": "^1.1.3",
